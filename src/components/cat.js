@@ -8,6 +8,8 @@ class Cat extends React.Component {
         this.hidden = false
     }
 
+ 
+
     hideUnhide = () => {
         this.hidden = ! this.hidden
         this.makeSound()
