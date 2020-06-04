@@ -1,7 +1,20 @@
 import React from 'react';
 
 class Cat extends React.Component {
-    miaow = () => {
+
+    constructor(props) {
+        super(props)
+
+        this.hidden = false
+    }
+
+    hideUnhide = () => {
+        this.hidden = ! this.hidden
+        this.makeSound()
+        this.setState({state: "state "})
+    }
+
+    makeSound = () => {
         console.log("Miaow! Miaow!");
         
     }
@@ -9,11 +22,12 @@ class Cat extends React.Component {
 
         return <div>
             <div>
-                Cat.
-            </div>            
+                <button onClick={this.hideUnhide}>Miaow</button>
+            </div>
             <div>
-                <button onClick={this.miaow}>Miaow</button>
+                {this.hidden ? null : "Cat" }
             </div>            
+                        
         </div>
 
 

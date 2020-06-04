@@ -1,19 +1,35 @@
 import React from 'react';
 
 class Dog extends React.Component {
-    bark = () => {
-        console.log("Woof Woof!");
+    
+    constructor(props) {
+        super(props);
+
+        this.animal = "Dog";
+    }
+    
+    switchAnimal = () => {
+        if(this.animal==="Fox") {
+            this.animal = "Dog";
+        } else {
+            this.animal = "Fox"
+        }
+        this.makeSound();
+        this.setState({state: "state"})
+    }
+    makeSound = () => {
+        console.log(this.animal);
         
     }
     render() {
 
         return <div>
             <div>
-                Dog.
-            </div>            
+                <button onClick={this.switchAnimal}>Bark</button>
+            </div>
             <div>
-                <button onClick={this.bark}>Bark</button>
-            </div>            
+                {this.animal}
+            </div>                                    
         </div>
 
     }
